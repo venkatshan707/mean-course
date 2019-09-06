@@ -1,0 +1,9 @@
+<mat-accordion id="margintop" *ngIf="posts.length >0">
+  <mat-expansion-panel *ngFor="let post of posts">
+    <mat-expansion-panel-header>
+      {{post.title}}
+      </mat-expansion-panel-header>
+      <p> {{post.content}}</p>
+  </mat-expansion-panel>
+</mat-accordion>
+<p  *ngIf= "posts.length <= 0"style="text-align: center; text-emphasis-style: inherit; color: rgb(21, 166, 192)">No posts added yet !</p>

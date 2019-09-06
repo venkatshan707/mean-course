@@ -1,0 +1,12 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+mat-form-field, textarea{
+  width: 100%;
+}
+button{
+  margin-top: 10px;
+
+}
+textarea{
+  border-bottom : 1px solid blue;
+}

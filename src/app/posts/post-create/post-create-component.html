@@ -1,0 +1,23 @@
+
+<div style="text-align:center;  color:rgb(21, 166, 192)"><h1 > Share Your Post</h1></div>
+<mat-card>
+  <!-- <mat-form-field>
+    <input type="text" matInput [(ngModel)]="enteredTitle" >
+  </mat-form-field> -->
+<mat-form-field>
+
+<textarea matInput #postInput id ="borderBottom" rows="6"   [(ngModel)]="enteredValue"></textarea>
+
+
+</mat-form-field>
+<button mat-raised-button color="accent" (click)="onAddPost(); postInput.value='' ">Save Post</button>
+</mat-card>
+
+<!-- ngModel -It's Angular Directive it can listen user input, store that value
+//and as well as emitting that listended value to user.
+// It's from @FormsModule not from @AngularCore.
+// It's do Two WAY Binding(setting value as well as givinging value). -->
+
+
+<p>{{newPostAcknowledgement}}</p>
+<p>{{postText}}</p>
