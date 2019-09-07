@@ -16,7 +16,15 @@ input{
   border-bottom :2px solid mediumvioletred;
 }
 
-label{
+label.contentLabel{
   margin-top: 50px;
+  margin-bottom: 10px;
   display: inline-block;
+
+  color: rgb(13, 13, 14); font-weight: bold;  width: 150px;  } label:after { content: ": "
+}
+label.titleLabel{
+  margin-bottom: 10px;
+  display: inline-block;
+  color: rgb(13, 13, 14); font-weight: bold;  width: 150px;  } label:after { content: ": "
 }
