@@ -8,5 +8,15 @@ button{
 
 }
 textarea{
-  border-bottom : 1px solid blue;
+
+  border-bottom : 2px solid mediumvioletred;
+}
+input{
+
+  border-bottom :2px solid mediumvioletred;
+}
+
+label{
+  margin-top: 50px;
+  display: inline-block;
 }

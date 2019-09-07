@@ -1,12 +1,13 @@
 
 <div style="text-align:center;  color:rgb(21, 166, 192)"><h1 > Share Your Post</h1></div>
 <mat-card>
-  <!-- <mat-form-field>
-    <input type="text" matInput [(ngModel)]="enteredTitle" >
-  </mat-form-field> -->
+  <mat-form-field>
+    <label>Title</label>
+    <input type="text"  matInput [(ngModel)]="enteredTitle" >
+  </mat-form-field>
 <mat-form-field>
-
-<textarea matInput #postInput id ="borderBottom" rows="6"   [(ngModel)]="enteredValue"></textarea>
+    <label class="contentLabel">Content</label>
+<textarea matInput #postInput id ="borderBottom" rows="6"   [(ngModel)]="enteredContent"></textarea>
 
 
 </mat-form-field>
