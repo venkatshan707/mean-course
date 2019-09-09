@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Output } from '@angular/core';
-
+import{Post} from '../post-model';
 
 @Component({
   selector: 'app-post-create',
@@ -13,15 +13,15 @@ export class PostCreateComponent{
  enteredContent='';
  enteredTitle='';
 @Output()
-postCreated=new EventEmitter();// It's object to emit the value with the help of output decorator
-
+postCreated=new EventEmitter<Post>();// It's object to emit the value with the help of output decorator
+// Adding Generic type Post for EventEmitter.
  // onAddPost(postText: HTMLTextAreaElement){
   onAddPost(){
 
 this.newPostAcknowledgement='You posted a new Post as:';
 this.postText=this.enteredContent;
 
-const post={
+const post : Post={
   title:this.enteredTitle,
   content:this.enteredContent,
 }
