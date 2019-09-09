@@ -1,17 +1,41 @@
 
 <div style="text-align:center;  color:rgb(21, 166, 192)"><h1 > Share Your Post</h1></div>
 <mat-card>
-  <mat-form-field>
-    <label class="titleLabel">Title</label>
-    <input  type="text"  matInput [(ngModel)]="enteredTitle" >
-  </mat-form-field>
-<mat-form-field>
-    <label class="contentLabel">Content</label>
-<textarea matInput #postInput id ="borderBottom" rows="6"   [(ngModel)]="enteredContent"></textarea>
+  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+ <!-- ngForm is Angular directive it stored in local reference object-> postForm  -->
+ <!-- // we are accessing this form object from ts file with the help of postFrom
+     //The local reference named as postForm -->
+      <mat-form-field>
+          <label class="titleLabel">Title</label>
+          <input  type="text"
+           matInput
+           name="title"
+           ngModel
+           required
+           minlength="3"
+           #titleValue='ngModel'><!-- This local reference of ngModel gives access to the input value -->
 
+           <mat-error *ngIf="titleValue.invalid">Please enter a valid Post Title</mat-error>
+        </mat-form-field>
+      <mat-form-field>
+          <label class="contentLabel">Content</label>
+      <textarea matInput
+      #postInput
+       id ="borderBottom"
+       rows="6"
+       name="content"
+        ngModel
+        #contentValue="ngModel"
+        required
+        minlength="10"></textarea>
+        <mat-error *ngIf="contentValue.invalid">Please enter a valid Post Content</mat-error>
 
-</mat-form-field>
-<button mat-raised-button color="accent" (click)="onAddPost(); postInput.value='' ">Save Post</button>
+      </mat-form-field>
+      <button mat-raised-button
+      color="accent"
+      type="submit">Save Post</button>
+  </form>
+
 </mat-card>
 
 <!-- ngModel -It's Angular Directive it can listen user input, store that value
