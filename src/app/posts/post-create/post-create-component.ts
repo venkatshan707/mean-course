@@ -28,6 +28,7 @@ this.postText=form.value.content;
 this.postsService.addPost (form.value.title, form.value.content);// emiting the post it's listed by post-list component with
                             //the help of app.component.html
 
+  form.resetForm();
   }
 
 }
