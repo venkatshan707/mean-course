@@ -1,5 +1,6 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import {Post} from '../post-model';
+import { PostsService } from '../../posts.service';
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
@@ -8,16 +9,18 @@ import {Post} from '../post-model';
 export class PostListComponent implements OnInit {
 //   posts=[
 //     // {title:"First Post",content:"This is firstPost's content"},
-//     // {title:"Second Post",content:"This is secondPost's content"},
+//     // {title:"Seco nd Post",content:"This is secondPost's content"},
 //     // {title:"Third Post",content:"This is ThirdPost's content"},
 // ];
-@Input()
+
 posts: Post[]=[];
+
 // decorator for making posts array id bingadble from outside inputs.
 // It's getting value from parent component.
-  constructor() { }
+  constructor(public postService :PostsService) { }
 
   ngOnInit() {
+    this.posts=this.postService.getPosts();
   }
 
 }

@@ -1,12 +1,12 @@
 <app-header></app-header>
 <main>
-  <app-post-create (postCreated)="onPostAdded($event)"></app-post-create>
+  <app-post-create ></app-post-create>
    <!-- if any emition happening in post-create component  this (postCreated) Event listener hitted here
   , and this will call function presented in app.component.ts and store posts globally.
   $event- It  gives access to the data u emitted. -->
 
 
-  <app-post-list [posts]="storedPosts"></app-post-list>
+  <app-post-list ></app-post-list>
 </main>
 
 

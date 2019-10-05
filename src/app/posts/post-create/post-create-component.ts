@@ -1,6 +1,6 @@
-import {Component, EventEmitter, Output } from '@angular/core';
-import{Post} from '../post-model';
+import {Component, } from '@angular/core';
 import{NgForm} from '@angular/forms';
+import {PostsService } from '../../posts.service';
 
 @Component({
   selector: 'app-post-create',
@@ -11,10 +11,9 @@ export class PostCreateComponent{
  newPostAcknowledgement='';
  posts='';
  postText='';
- enteredContent='';
- enteredTitle='';
-@Output()
-postCreated=new EventEmitter<Post>();// It's object to emit the value with the help of output decorator
+ constructor (public postsService:PostsService){}
+// @Output()
+// postCreated=new EventEmitter<Post>();// It's object to emit the value with the help of output decorator
 // Adding Generic type Post for EventEmitter.
  // onAddPost(postText: HTMLTextAreaElement){
   onAddPost( form : NgForm){
@@ -23,13 +22,10 @@ postCreated=new EventEmitter<Post>();// It's object to emit the value with the h
        return;
      }
 this.newPostAcknowledgement='You posted a new Post as:';
-this.postText=this.enteredContent;
+this.postText=form.value.content;
 
-const post : Post={
-  title:form.value.title,
-  content:form.value.content,
-}
-this.postCreated.emit(post);// emiting the post it's listed by post-list component with
+
+this.postsService.addPost (form.value.title, form.value.content);// emiting the post it's listed by post-list component with
                             //the help of app.component.html
 
   }
