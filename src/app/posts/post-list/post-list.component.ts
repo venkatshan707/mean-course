@@ -23,7 +23,7 @@ posts: Post[]=[];
 private postsSub:Subscription;
 
   ngOnInit() {
-    this.posts=this.postService.getPosts();
+    this.postService.getPosts();
 
 
     //We are setting Listener to the Subject presented in posts.service.ts

@@ -8,6 +8,7 @@ import {PostCreateComponent} from './posts/post-create/post-create-component';
 import { HeaderComponent } from './header/header.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
 import { PostsService } from './posts.service';
+import {HttpClientModule} from "@angular/common/http";
 
 
 
@@ -17,7 +18,14 @@ import { PostsService } from './posts.service';
   ],
   imports: [
     BrowserAnimationsModule,
-    BrowserModule,FormsModule,MatInputModule,MatCardModule,MatButtonModule,MatToolbarModule,MatExpansionModule,
+    BrowserModule,
+    FormsModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatExpansionModule,
+    HttpClientModule,
   ],
   providers: [PostsService],
   bootstrap: [AppComponent]

@@ -21,13 +21,40 @@ const express= require('express');
     console.log("This is First Middleware");// This prints in command prompt only
     next();// This says to compiler go to next middleware.
  });
+
+
 // Above four lines are one middleware
 // here next function says to compiler see another middlewares after current middleware's execution finished
 
 //This middleware gives(sends) response to client.if compiler not hitting any res.send() method our browser will buffering infinite time for such a time period.
- app.use((req,res,next)=>{
+ /* app.use((req,res,next)=>{
     res.send("Hello from Express's Second middleware");
-});
+    });
+    */
+
+//Now we are registering path with get request
+   app.use('/api/posts',(req,res,next)=>{
+     const posts=[
+       {
+         id:'venkat001',
+         title:'first title ',
+         content:'first msg contentr',},
+         {
+          id:'venkat002',
+          title:'second title ',
+          content:'second msg contentr',},
+     ];
+
+    return res.status(200).json({
+      message:'Got a message successfully',
+      posts:posts
+    }
+      );
+
+    });
+
+
+
 
 //We need to wireup this very simple express app with our server presented in root directory where we are actually listening to incomming requests.
 //We want to use this express app as a listener. for making as a listener we need to export this app.
